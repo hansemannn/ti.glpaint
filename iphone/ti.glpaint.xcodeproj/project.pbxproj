@@ -1,0 +1,542 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		24416B8111C4CA220047AFDD /* Build & Test */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */;
+			buildPhases = (
+				24416B8011C4CA220047AFDD /* ShellScript */,
+			);
+			dependencies = (
+				24416B8511C4CA280047AFDD /* PBXTargetDependency */,
+			);
+			name = "Build & Test";
+			productName = "Build & test";
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		24DD6CF91134B3F500162E58 /* TiGlpaintModule.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DD6CF71134B3F500162E58 /* TiGlpaintModule.h */; };
+		24DD6CFA1134B3F500162E58 /* TiGlpaintModule.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DD6CF81134B3F500162E58 /* TiGlpaintModule.m */; };
+		24DE9E1111C5FE74003F90F6 /* TiGlpaintModuleAssets.h in Headers */ = {isa = PBXBuildFile; fileRef = 24DE9E0F11C5FE74003F90F6 /* TiGlpaintModuleAssets.h */; };
+		24DE9E1211C5FE74003F90F6 /* TiGlpaintModuleAssets.m in Sources */ = {isa = PBXBuildFile; fileRef = 24DE9E1011C5FE74003F90F6 /* TiGlpaintModuleAssets.m */; };
+		3A6C06EF1CB8651100C3CDD3 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C06EE1CB8651100C3CDD3 /* GLKit.framework */; };
+		3A6C06F11CB8651500C3CDD3 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C06F01CB8651500C3CDD3 /* AudioToolbox.framework */; };
+		3A6C06F31CB8651B00C3CDD3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C06F21CB8651B00C3CDD3 /* CoreGraphics.framework */; };
+		3A6C06F51CB8651F00C3CDD3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C06F41CB8651F00C3CDD3 /* QuartzCore.framework */; };
+		3A6C06F71CB8652500C3CDD3 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3A6C06F61CB8652500C3CDD3 /* OpenGLES.framework */; };
+		3A6C06FD1CB8657A00C3CDD3 /* debug.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C06F81CB8657A00C3CDD3 /* debug.h */; };
+		3A6C06FE1CB8657A00C3CDD3 /* fileUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C06F91CB8657A00C3CDD3 /* fileUtil.h */; };
+		3A6C06FF1CB8657A00C3CDD3 /* fileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C06FA1CB8657A00C3CDD3 /* fileUtil.m */; };
+		3A6C07001CB8657A00C3CDD3 /* shaderUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C06FB1CB8657A00C3CDD3 /* shaderUtil.c */; };
+		3A6C07011CB8657A00C3CDD3 /* shaderUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C06FC1CB8657A00C3CDD3 /* shaderUtil.h */; };
+		3A6C070D1CB8658E00C3CDD3 /* PaintingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C07051CB8658E00C3CDD3 /* PaintingView.h */; };
+		3A6C070E1CB8658E00C3CDD3 /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07061CB8658E00C3CDD3 /* PaintingView.m */; };
+		3A6C070F1CB8658E00C3CDD3 /* PaintingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C07071CB8658E00C3CDD3 /* PaintingViewController.h */; };
+		3A6C07101CB8658E00C3CDD3 /* PaintingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07081CB8658E00C3CDD3 /* PaintingViewController.m */; };
+		3A6C073C1CB8704600C3CDD3 /* Blue.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07341CB8703A00C3CDD3 /* Blue.png */; };
+		3A6C073D1CB8704600C3CDD3 /* Green.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07351CB8703A00C3CDD3 /* Green.png */; };
+		3A6C073E1CB8704600C3CDD3 /* Particle.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07361CB8703A00C3CDD3 /* Particle.png */; };
+		3A6C073F1CB8704600C3CDD3 /* point.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07371CB8703A00C3CDD3 /* point.fsh */; };
+		3A6C07401CB8704600C3CDD3 /* point.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07381CB8703A00C3CDD3 /* point.vsh */; };
+		3A6C07411CB8704600C3CDD3 /* Purple.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07391CB8703A00C3CDD3 /* Purple.png */; };
+		3A6C07421CB8704600C3CDD3 /* Red.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C073A1CB8703A00C3CDD3 /* Red.png */; };
+		3A6C07431CB8704600C3CDD3 /* Yellow.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C073B1CB8703A00C3CDD3 /* Yellow.png */; };
+		3A6C07561CB8729500C3CDD3 /* TiGlpaintPaintView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C07541CB8729500C3CDD3 /* TiGlpaintPaintView.h */; };
+		3A6C07571CB8729500C3CDD3 /* TiGlpaintPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07551CB8729500C3CDD3 /* TiGlpaintPaintView.m */; };
+		3A6C075A1CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C07581CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.h */; };
+		3A6C075B1CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07591CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.m */; };
+		AA747D9F0F9514B9006C5449 /* TiGlpaint_Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = AA747D9E0F9514B9006C5449 /* TiGlpaint_Prefix.pch */; };
+		AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AACBBE490F95108600F1A2B1 /* Foundation.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		24416B8411C4CA280047AFDD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0867D690FE84028FC02AAC07 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D2AAC07D0554694100DB518D;
+			remoteInfo = ti.glpaint;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		24DD6CF71134B3F500162E58 /* TiGlpaintModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGlpaintModule.h; path = Classes/TiGlpaintModule.h; sourceTree = "<group>"; };
+		24DD6CF81134B3F500162E58 /* TiGlpaintModule.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGlpaintModule.m; path = Classes/TiGlpaintModule.m; sourceTree = "<group>"; };
+		24DD6D1B1134B66800162E58 /* titanium.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = titanium.xcconfig; sourceTree = "<group>"; };
+		24DE9E0F11C5FE74003F90F6 /* TiGlpaintModuleAssets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGlpaintModuleAssets.h; path = Classes/TiGlpaintModuleAssets.h; sourceTree = "<group>"; };
+		24DE9E1011C5FE74003F90F6 /* TiGlpaintModuleAssets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGlpaintModuleAssets.m; path = Classes/TiGlpaintModuleAssets.m; sourceTree = "<group>"; };
+		3A6C06EE1CB8651100C3CDD3 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		3A6C06F01CB8651500C3CDD3 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		3A6C06F21CB8651B00C3CDD3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		3A6C06F41CB8651F00C3CDD3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		3A6C06F61CB8652500C3CDD3 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		3A6C06F81CB8657A00C3CDD3 /* debug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = debug.h; path = Classes/GLPaint/UtilSrc/debug.h; sourceTree = "<group>"; };
+		3A6C06F91CB8657A00C3CDD3 /* fileUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fileUtil.h; path = Classes/GLPaint/UtilSrc/fileUtil.h; sourceTree = "<group>"; };
+		3A6C06FA1CB8657A00C3CDD3 /* fileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = fileUtil.m; path = Classes/GLPaint/UtilSrc/fileUtil.m; sourceTree = "<group>"; };
+		3A6C06FB1CB8657A00C3CDD3 /* shaderUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = shaderUtil.c; path = Classes/GLPaint/UtilSrc/shaderUtil.c; sourceTree = "<group>"; };
+		3A6C06FC1CB8657A00C3CDD3 /* shaderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shaderUtil.h; path = Classes/GLPaint/UtilSrc/shaderUtil.h; sourceTree = "<group>"; };
+		3A6C07051CB8658E00C3CDD3 /* PaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaintingView.h; path = Classes/GLPaint/PaintingView.h; sourceTree = "<group>"; };
+		3A6C07061CB8658E00C3CDD3 /* PaintingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaintingView.m; path = Classes/GLPaint/PaintingView.m; sourceTree = "<group>"; };
+		3A6C07071CB8658E00C3CDD3 /* PaintingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaintingViewController.h; path = Classes/GLPaint/PaintingViewController.h; sourceTree = "<group>"; };
+		3A6C07081CB8658E00C3CDD3 /* PaintingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaintingViewController.m; path = Classes/GLPaint/PaintingViewController.m; sourceTree = "<group>"; };
+		3A6C07341CB8703A00C3CDD3 /* Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Blue.png; path = Resources/Blue.png; sourceTree = SOURCE_ROOT; };
+		3A6C07351CB8703A00C3CDD3 /* Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Green.png; path = Resources/Green.png; sourceTree = SOURCE_ROOT; };
+		3A6C07361CB8703A00C3CDD3 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Particle.png; path = Resources/Particle.png; sourceTree = SOURCE_ROOT; };
+		3A6C07371CB8703A00C3CDD3 /* point.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = point.fsh; path = Resources/point.fsh; sourceTree = SOURCE_ROOT; };
+		3A6C07381CB8703A00C3CDD3 /* point.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = point.vsh; path = Resources/point.vsh; sourceTree = SOURCE_ROOT; };
+		3A6C07391CB8703A00C3CDD3 /* Purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Purple.png; path = Resources/Purple.png; sourceTree = SOURCE_ROOT; };
+		3A6C073A1CB8703A00C3CDD3 /* Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Red.png; path = Resources/Red.png; sourceTree = SOURCE_ROOT; };
+		3A6C073B1CB8703A00C3CDD3 /* Yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Yellow.png; path = Resources/Yellow.png; sourceTree = SOURCE_ROOT; };
+		3A6C07541CB8729500C3CDD3 /* TiGlpaintPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGlpaintPaintView.h; path = Classes/TiGlpaintPaintView.h; sourceTree = "<group>"; };
+		3A6C07551CB8729500C3CDD3 /* TiGlpaintPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGlpaintPaintView.m; path = Classes/TiGlpaintPaintView.m; sourceTree = "<group>"; };
+		3A6C07581CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGlpaintPaintViewProxy.h; path = Classes/TiGlpaintPaintViewProxy.h; sourceTree = "<group>"; };
+		3A6C07591CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGlpaintPaintViewProxy.m; path = Classes/TiGlpaintPaintViewProxy.m; sourceTree = "<group>"; };
+		AA747D9E0F9514B9006C5449 /* TiGlpaint_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiGlpaint_Prefix.pch; sourceTree = SOURCE_ROOT; };
+		AACBBE490F95108600F1A2B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D2AAC07E0554694100DB518D /* libTiGlpaint.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTiGlpaint.a; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D2AAC07C0554694100DB518D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A6C06F71CB8652500C3CDD3 /* OpenGLES.framework in Frameworks */,
+				3A6C06F51CB8651F00C3CDD3 /* QuartzCore.framework in Frameworks */,
+				3A6C06F31CB8651B00C3CDD3 /* CoreGraphics.framework in Frameworks */,
+				3A6C06F11CB8651500C3CDD3 /* AudioToolbox.framework in Frameworks */,
+				3A6C06EF1CB8651100C3CDD3 /* GLKit.framework in Frameworks */,
+				AACBBE4A0F95108600F1A2B1 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		034768DFFF38A50411DB9C8B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D2AAC07E0554694100DB518D /* libTiGlpaint.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0867D691FE84028FC02AAC07 /* ti.glpaint */ = {
+			isa = PBXGroup;
+			children = (
+				08FB77AEFE84172EC02AAC07 /* Classes */,
+				32C88DFF0371C24200C91783 /* Other Sources */,
+				0867D69AFE84028FC02AAC07 /* Frameworks */,
+				034768DFFF38A50411DB9C8B /* Products */,
+				3A6C06DE1CB864FC00C3CDD3 /* Resources */,
+			);
+			name = ti.glpaint;
+			sourceTree = "<group>";
+		};
+		0867D69AFE84028FC02AAC07 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3A6C06F61CB8652500C3CDD3 /* OpenGLES.framework */,
+				3A6C06F41CB8651F00C3CDD3 /* QuartzCore.framework */,
+				3A6C06F21CB8651B00C3CDD3 /* CoreGraphics.framework */,
+				3A6C06F01CB8651500C3CDD3 /* AudioToolbox.framework */,
+				3A6C06EE1CB8651100C3CDD3 /* GLKit.framework */,
+				AACBBE490F95108600F1A2B1 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		08FB77AEFE84172EC02AAC07 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3A6C07021CB8657F00C3CDD3 /* Utilities */,
+				3A6C07131CB8659200C3CDD3 /* BAK */,
+				24DE9E0F11C5FE74003F90F6 /* TiGlpaintModuleAssets.h */,
+				24DE9E1011C5FE74003F90F6 /* TiGlpaintModuleAssets.m */,
+				24DD6CF71134B3F500162E58 /* TiGlpaintModule.h */,
+				24DD6CF81134B3F500162E58 /* TiGlpaintModule.m */,
+				3A6C07541CB8729500C3CDD3 /* TiGlpaintPaintView.h */,
+				3A6C07551CB8729500C3CDD3 /* TiGlpaintPaintView.m */,
+				3A6C07581CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.h */,
+				3A6C07591CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.m */,
+			);
+			name = Classes;
+			sourceTree = "<group>";
+		};
+		32C88DFF0371C24200C91783 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				AA747D9E0F9514B9006C5449 /* TiGlpaint_Prefix.pch */,
+				24DD6D1B1134B66800162E58 /* titanium.xcconfig */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		3A6C06DE1CB864FC00C3CDD3 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3A6C07341CB8703A00C3CDD3 /* Blue.png */,
+				3A6C07351CB8703A00C3CDD3 /* Green.png */,
+				3A6C07361CB8703A00C3CDD3 /* Particle.png */,
+				3A6C07371CB8703A00C3CDD3 /* point.fsh */,
+				3A6C07381CB8703A00C3CDD3 /* point.vsh */,
+				3A6C07391CB8703A00C3CDD3 /* Purple.png */,
+				3A6C073A1CB8703A00C3CDD3 /* Red.png */,
+				3A6C073B1CB8703A00C3CDD3 /* Yellow.png */,
+			);
+			name = Resources;
+			path = Resources/Images;
+			sourceTree = "<group>";
+		};
+		3A6C07021CB8657F00C3CDD3 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				3A6C06F81CB8657A00C3CDD3 /* debug.h */,
+				3A6C06F91CB8657A00C3CDD3 /* fileUtil.h */,
+				3A6C06FA1CB8657A00C3CDD3 /* fileUtil.m */,
+				3A6C06FB1CB8657A00C3CDD3 /* shaderUtil.c */,
+				3A6C06FC1CB8657A00C3CDD3 /* shaderUtil.h */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
+		3A6C07131CB8659200C3CDD3 /* BAK */ = {
+			isa = PBXGroup;
+			children = (
+				3A6C07051CB8658E00C3CDD3 /* PaintingView.h */,
+				3A6C07061CB8658E00C3CDD3 /* PaintingView.m */,
+				3A6C07071CB8658E00C3CDD3 /* PaintingViewController.h */,
+				3A6C07081CB8658E00C3CDD3 /* PaintingViewController.m */,
+			);
+			name = BAK;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		D2AAC07A0554694100DB518D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A6C06FD1CB8657A00C3CDD3 /* debug.h in Headers */,
+				3A6C070D1CB8658E00C3CDD3 /* PaintingView.h in Headers */,
+				3A6C07561CB8729500C3CDD3 /* TiGlpaintPaintView.h in Headers */,
+				3A6C070F1CB8658E00C3CDD3 /* PaintingViewController.h in Headers */,
+				3A6C075A1CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.h in Headers */,
+				AA747D9F0F9514B9006C5449 /* TiGlpaint_Prefix.pch in Headers */,
+				3A6C06FE1CB8657A00C3CDD3 /* fileUtil.h in Headers */,
+				24DD6CF91134B3F500162E58 /* TiGlpaintModule.h in Headers */,
+				24DE9E1111C5FE74003F90F6 /* TiGlpaintModuleAssets.h in Headers */,
+				3A6C07011CB8657A00C3CDD3 /* shaderUtil.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		D2AAC07D0554694100DB518D /* ti.glpaint */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "ti.glpaint" */;
+			buildPhases = (
+				D2AAC07A0554694100DB518D /* Headers */,
+				D2AAC07B0554694100DB518D /* Sources */,
+				D2AAC07C0554694100DB518D /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ti.glpaint;
+			productName = ti.glpaint;
+			productReference = D2AAC07E0554694100DB518D /* libTiGlpaint.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0867D690FE84028FC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+			};
+			buildConfigurationList = 1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "ti.glpaint" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+				en,
+			);
+			mainGroup = 0867D691FE84028FC02AAC07 /* ti.glpaint */;
+			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				D2AAC07D0554694100DB518D /* ti.glpaint */,
+				24416B8111C4CA220047AFDD /* Build & Test */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		24416B8011C4CA220047AFDD /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# shell script goes here\n\npython \"${TITANIUM_SDK}/titanium.py\" run --dir=\"${PROJECT_DIR}\"\nexit $?\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D2AAC07B0554694100DB518D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A6C073C1CB8704600C3CDD3 /* Blue.png in Sources */,
+				3A6C073D1CB8704600C3CDD3 /* Green.png in Sources */,
+				3A6C073E1CB8704600C3CDD3 /* Particle.png in Sources */,
+				3A6C073F1CB8704600C3CDD3 /* point.fsh in Sources */,
+				3A6C07401CB8704600C3CDD3 /* point.vsh in Sources */,
+				3A6C07411CB8704600C3CDD3 /* Purple.png in Sources */,
+				3A6C07421CB8704600C3CDD3 /* Red.png in Sources */,
+				3A6C07431CB8704600C3CDD3 /* Yellow.png in Sources */,
+				3A6C06FF1CB8657A00C3CDD3 /* fileUtil.m in Sources */,
+				3A6C075B1CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.m in Sources */,
+				24DD6CFA1134B3F500162E58 /* TiGlpaintModule.m in Sources */,
+				3A6C070E1CB8658E00C3CDD3 /* PaintingView.m in Sources */,
+				3A6C07001CB8657A00C3CDD3 /* shaderUtil.c in Sources */,
+				3A6C07571CB8729500C3CDD3 /* TiGlpaintPaintView.m in Sources */,
+				3A6C07101CB8658E00C3CDD3 /* PaintingViewController.m in Sources */,
+				24DE9E1211C5FE74003F90F6 /* TiGlpaintModuleAssets.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		24416B8511C4CA280047AFDD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D2AAC07D0554694100DB518D /* ti.glpaint */;
+			targetProxy = 24416B8411C4CA280047AFDD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB921F08733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/TiGlpaint.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiGlpaint_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiGlpaint;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922008733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				DSTROOT = /tmp/TiGlpaint.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiGlpaint_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiGlpaint;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		1DEB922308733DC00010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				CLANG_CXX_LIBRARY = "libstdc++";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DSTROOT = /tmp/TiGlpaint.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiGlpaint_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CFLAGS = (
+					"-DDEBUG",
+					"-DTI_POST_1_2",
+				);
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiGlpaint;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Debug;
+		};
+		1DEB922408733DC00010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LIBRARY = "libstdc++";
+				DSTROOT = /tmp/TiGlpaint.dst;
+				GCC_C_LANGUAGE_STANDARD = c99;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TiGlpaint_Prefix.pch;
+				GCC_PREPROCESSOR_DEFINITIONS = "TI_VERSION=$(TI_VERSION)";
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
+				GCC_VERSION = "";
+				GCC_WARN_ABOUT_RETURN_TYPE = NO;
+				GCC_WARN_MISSING_PARENTHESES = NO;
+				GCC_WARN_SHADOW = NO;
+				GCC_WARN_STRICT_SELECTOR_MATCH = NO;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_PARAMETER = NO;
+				GCC_WARN_UNUSED_VALUE = NO;
+				GCC_WARN_UNUSED_VARIABLE = NO;
+				INSTALL_PATH = /usr/local/lib;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DTI_POST_1_2";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = TiGlpaint;
+				RUN_CLANG_STATIC_ANALYZER = NO;
+				SDKROOT = iphoneos;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Release;
+		};
+		24416B8211C4CA220047AFDD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Build & test";
+			};
+			name = Debug;
+		};
+		24416B8311C4CA220047AFDD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24DD6D1B1134B66800162E58 /* titanium.xcconfig */;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Build & test";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB921E08733DC00010E9CD /* Build configuration list for PBXNativeTarget "ti.glpaint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB921F08733DC00010E9CD /* Debug */,
+				1DEB922008733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB922208733DC00010E9CD /* Build configuration list for PBXProject "ti.glpaint" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB922308733DC00010E9CD /* Debug */,
+				1DEB922408733DC00010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		24416B8A11C4CA520047AFDD /* Build configuration list for PBXAggregateTarget "Build & Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				24416B8211C4CA220047AFDD /* Debug */,
+				24416B8311C4CA220047AFDD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0867D690FE84028FC02AAC07 /* Project object */;
+}
