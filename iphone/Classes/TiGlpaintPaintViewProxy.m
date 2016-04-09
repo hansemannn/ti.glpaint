@@ -4,36 +4,42 @@
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
  */
-
 #import "TiGlpaintPaintView.h"
 #import "TiGlpaintPaintViewProxy.h"
 #import "TiUtils.h"
 
 @implementation TiGlpaintPaintViewProxy
 
-- (TiGlpaintPaintView*)paintView
-{
-    return (TiGlpaintPaintView*)self.view;
-}
-
 #pragma mark Public APIs
-
-- (void)initialize:(id)unused
-{
-    [[[self paintView] paintingView] layoutSubviews];
-}
 
 - (void)erase:(id)unused
 {
-    [[[self paintView] paintingView] erase];
+    ENSURE_ARG_COUNT(unused, 0);
+    [(TiGlpaintPaintView*)[self view] erase];
 }
 
-- (void)setBrushColor:(id)value
+- (void)setBrush:(id)args
 {
-    CGColorRef color = [[[TiUtils colorValue:value] _color] CGColor];
-    const CGFloat *components = CGColorGetComponents(color);
+    ENSURE_TYPE(args, NSDictionary);
     
-    [[[self paintView] paintingView] setBrushColorWithRed:components[0] green:components[1] blue:components[2]];
+    id tintColor = [args valueForKey:@"tintColor"];
+    id opacity = [args valueForKey:@"opacity"];
+    id image = [args valueForKey:@"image"];
+  //  id scale = [args valueForKey:@"scale"];
+  //  id pixelStep = [args valueForKey:@"pixelStep"];
+    
+    ENSURE_TYPE(tintColor, NSString);
+    ENSURE_TYPE(opacity, NSNumber);
+    ENSURE_TYPE(image, NSString);
+  //  ENSURE_TYPE(scale, NSNumber);
+  //  ENSURE_TYPE(pixelStep, NSNumber);
+    
+    const CGFloat *components = CGColorGetComponents([[[TiUtils colorValue:tintColor] _color] CGColor]);
+    [(TiGlpaintPaintView*)[self view] setBrushColorWithRed:components[0] green:components[1] blue:components[2] opacity:[TiUtils floatValue:opacity def:0.3]];
+    
+    [(TiGlpaintPaintView*)[self view] setBrushImage:[TiUtils stringValue:image]];
+  //  [(TiGlpaintPaintView*)[self view] setBrushScale:[TiUtils floatValue:scale]];
+  //  [(TiGlpaintPaintView*)[self view] setBrushPixelStep:[TiUtils floatValue:pixelStep]];
 }
 
 #pragma mark Helper
@@ -44,12 +50,12 @@ USE_VIEW_FOR_CONTENT_HEIGHT
 
 -(TiDimension)defaultAutoWidthBehavior:(id)unused
 {
-    return TiDimensionAutoSize;
+    return TiDimensionAutoFill;
 }
 
 -(TiDimension)defaultAutoHeightBehavior:(id)unused
 {
-    return TiDimensionAutoSize;
+    return TiDimensionAutoFill;
 }
 
 @end

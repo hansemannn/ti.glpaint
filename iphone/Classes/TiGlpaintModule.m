@@ -10,7 +10,6 @@
 #import "TiHost.h"
 #import "TiApp.h"
 #import "TiUtils.h"
-#import "PaintingViewController.h"
 
 @implementation TiGlpaintModule
 

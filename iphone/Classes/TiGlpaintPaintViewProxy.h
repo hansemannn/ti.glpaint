@@ -10,4 +10,7 @@
 
 }
 
+- (void)erase:(id)unused;
+- (void)setBrush:(id)args;
+
 @end

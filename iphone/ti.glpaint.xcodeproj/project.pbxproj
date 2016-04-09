@@ -36,18 +36,6 @@
 		3A6C06FF1CB8657A00C3CDD3 /* fileUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C06FA1CB8657A00C3CDD3 /* fileUtil.m */; };
 		3A6C07001CB8657A00C3CDD3 /* shaderUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C06FB1CB8657A00C3CDD3 /* shaderUtil.c */; };
 		3A6C07011CB8657A00C3CDD3 /* shaderUtil.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C06FC1CB8657A00C3CDD3 /* shaderUtil.h */; };
-		3A6C070D1CB8658E00C3CDD3 /* PaintingView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C07051CB8658E00C3CDD3 /* PaintingView.h */; };
-		3A6C070E1CB8658E00C3CDD3 /* PaintingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07061CB8658E00C3CDD3 /* PaintingView.m */; };
-		3A6C070F1CB8658E00C3CDD3 /* PaintingViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C07071CB8658E00C3CDD3 /* PaintingViewController.h */; };
-		3A6C07101CB8658E00C3CDD3 /* PaintingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07081CB8658E00C3CDD3 /* PaintingViewController.m */; };
-		3A6C073C1CB8704600C3CDD3 /* Blue.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07341CB8703A00C3CDD3 /* Blue.png */; };
-		3A6C073D1CB8704600C3CDD3 /* Green.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07351CB8703A00C3CDD3 /* Green.png */; };
-		3A6C073E1CB8704600C3CDD3 /* Particle.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07361CB8703A00C3CDD3 /* Particle.png */; };
-		3A6C073F1CB8704600C3CDD3 /* point.fsh in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07371CB8703A00C3CDD3 /* point.fsh */; };
-		3A6C07401CB8704600C3CDD3 /* point.vsh in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07381CB8703A00C3CDD3 /* point.vsh */; };
-		3A6C07411CB8704600C3CDD3 /* Purple.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07391CB8703A00C3CDD3 /* Purple.png */; };
-		3A6C07421CB8704600C3CDD3 /* Red.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C073A1CB8703A00C3CDD3 /* Red.png */; };
-		3A6C07431CB8704600C3CDD3 /* Yellow.png in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C073B1CB8703A00C3CDD3 /* Yellow.png */; };
 		3A6C07561CB8729500C3CDD3 /* TiGlpaintPaintView.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C07541CB8729500C3CDD3 /* TiGlpaintPaintView.h */; };
 		3A6C07571CB8729500C3CDD3 /* TiGlpaintPaintView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A6C07551CB8729500C3CDD3 /* TiGlpaintPaintView.m */; };
 		3A6C075A1CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = 3A6C07581CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.h */; };
@@ -82,18 +70,6 @@
 		3A6C06FA1CB8657A00C3CDD3 /* fileUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = fileUtil.m; path = Classes/GLPaint/UtilSrc/fileUtil.m; sourceTree = "<group>"; };
 		3A6C06FB1CB8657A00C3CDD3 /* shaderUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = shaderUtil.c; path = Classes/GLPaint/UtilSrc/shaderUtil.c; sourceTree = "<group>"; };
 		3A6C06FC1CB8657A00C3CDD3 /* shaderUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = shaderUtil.h; path = Classes/GLPaint/UtilSrc/shaderUtil.h; sourceTree = "<group>"; };
-		3A6C07051CB8658E00C3CDD3 /* PaintingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaintingView.h; path = Classes/GLPaint/PaintingView.h; sourceTree = "<group>"; };
-		3A6C07061CB8658E00C3CDD3 /* PaintingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaintingView.m; path = Classes/GLPaint/PaintingView.m; sourceTree = "<group>"; };
-		3A6C07071CB8658E00C3CDD3 /* PaintingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PaintingViewController.h; path = Classes/GLPaint/PaintingViewController.h; sourceTree = "<group>"; };
-		3A6C07081CB8658E00C3CDD3 /* PaintingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PaintingViewController.m; path = Classes/GLPaint/PaintingViewController.m; sourceTree = "<group>"; };
-		3A6C07341CB8703A00C3CDD3 /* Blue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Blue.png; path = Resources/Blue.png; sourceTree = SOURCE_ROOT; };
-		3A6C07351CB8703A00C3CDD3 /* Green.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Green.png; path = Resources/Green.png; sourceTree = SOURCE_ROOT; };
-		3A6C07361CB8703A00C3CDD3 /* Particle.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Particle.png; path = Resources/Particle.png; sourceTree = SOURCE_ROOT; };
-		3A6C07371CB8703A00C3CDD3 /* point.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = point.fsh; path = Resources/point.fsh; sourceTree = SOURCE_ROOT; };
-		3A6C07381CB8703A00C3CDD3 /* point.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; name = point.vsh; path = Resources/point.vsh; sourceTree = SOURCE_ROOT; };
-		3A6C07391CB8703A00C3CDD3 /* Purple.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Purple.png; path = Resources/Purple.png; sourceTree = SOURCE_ROOT; };
-		3A6C073A1CB8703A00C3CDD3 /* Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Red.png; path = Resources/Red.png; sourceTree = SOURCE_ROOT; };
-		3A6C073B1CB8703A00C3CDD3 /* Yellow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Yellow.png; path = Resources/Yellow.png; sourceTree = SOURCE_ROOT; };
 		3A6C07541CB8729500C3CDD3 /* TiGlpaintPaintView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGlpaintPaintView.h; path = Classes/TiGlpaintPaintView.h; sourceTree = "<group>"; };
 		3A6C07551CB8729500C3CDD3 /* TiGlpaintPaintView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TiGlpaintPaintView.m; path = Classes/TiGlpaintPaintView.m; sourceTree = "<group>"; };
 		3A6C07581CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TiGlpaintPaintViewProxy.h; path = Classes/TiGlpaintPaintViewProxy.h; sourceTree = "<group>"; };
@@ -157,7 +133,6 @@
 			isa = PBXGroup;
 			children = (
 				3A6C07021CB8657F00C3CDD3 /* Utilities */,
-				3A6C07131CB8659200C3CDD3 /* BAK */,
 				24DE9E0F11C5FE74003F90F6 /* TiGlpaintModuleAssets.h */,
 				24DE9E1011C5FE74003F90F6 /* TiGlpaintModuleAssets.m */,
 				24DD6CF71134B3F500162E58 /* TiGlpaintModule.h */,
@@ -182,14 +157,6 @@
 		3A6C06DE1CB864FC00C3CDD3 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3A6C07341CB8703A00C3CDD3 /* Blue.png */,
-				3A6C07351CB8703A00C3CDD3 /* Green.png */,
-				3A6C07361CB8703A00C3CDD3 /* Particle.png */,
-				3A6C07371CB8703A00C3CDD3 /* point.fsh */,
-				3A6C07381CB8703A00C3CDD3 /* point.vsh */,
-				3A6C07391CB8703A00C3CDD3 /* Purple.png */,
-				3A6C073A1CB8703A00C3CDD3 /* Red.png */,
-				3A6C073B1CB8703A00C3CDD3 /* Yellow.png */,
 			);
 			name = Resources;
 			path = Resources/Images;
@@ -207,17 +174,6 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
-		3A6C07131CB8659200C3CDD3 /* BAK */ = {
-			isa = PBXGroup;
-			children = (
-				3A6C07051CB8658E00C3CDD3 /* PaintingView.h */,
-				3A6C07061CB8658E00C3CDD3 /* PaintingView.m */,
-				3A6C07071CB8658E00C3CDD3 /* PaintingViewController.h */,
-				3A6C07081CB8658E00C3CDD3 /* PaintingViewController.m */,
-			);
-			name = BAK;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -226,9 +182,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A6C06FD1CB8657A00C3CDD3 /* debug.h in Headers */,
-				3A6C070D1CB8658E00C3CDD3 /* PaintingView.h in Headers */,
 				3A6C07561CB8729500C3CDD3 /* TiGlpaintPaintView.h in Headers */,
-				3A6C070F1CB8658E00C3CDD3 /* PaintingViewController.h in Headers */,
 				3A6C075A1CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.h in Headers */,
 				AA747D9F0F9514B9006C5449 /* TiGlpaint_Prefix.pch in Headers */,
 				3A6C06FE1CB8657A00C3CDD3 /* fileUtil.h in Headers */,
@@ -309,22 +263,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A6C073C1CB8704600C3CDD3 /* Blue.png in Sources */,
-				3A6C073D1CB8704600C3CDD3 /* Green.png in Sources */,
-				3A6C073E1CB8704600C3CDD3 /* Particle.png in Sources */,
-				3A6C073F1CB8704600C3CDD3 /* point.fsh in Sources */,
-				3A6C07401CB8704600C3CDD3 /* point.vsh in Sources */,
-				3A6C07411CB8704600C3CDD3 /* Purple.png in Sources */,
-				3A6C07421CB8704600C3CDD3 /* Red.png in Sources */,
-				3A6C07431CB8704600C3CDD3 /* Yellow.png in Sources */,
 				3A6C06FF1CB8657A00C3CDD3 /* fileUtil.m in Sources */,
-				3A6C075B1CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.m in Sources */,
-				24DD6CFA1134B3F500162E58 /* TiGlpaintModule.m in Sources */,
-				3A6C070E1CB8658E00C3CDD3 /* PaintingView.m in Sources */,
 				3A6C07001CB8657A00C3CDD3 /* shaderUtil.c in Sources */,
-				3A6C07571CB8729500C3CDD3 /* TiGlpaintPaintView.m in Sources */,
-				3A6C07101CB8658E00C3CDD3 /* PaintingViewController.m in Sources */,
 				24DE9E1211C5FE74003F90F6 /* TiGlpaintModuleAssets.m in Sources */,
+				3A6C075B1CB8729F00C3CDD3 /* TiGlpaintPaintViewProxy.m in Sources */,
+				3A6C07571CB8729500C3CDD3 /* TiGlpaintPaintView.m in Sources */,
+				24DD6CFA1134B3F500162E58 /* TiGlpaintModule.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
