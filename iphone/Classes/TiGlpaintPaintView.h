@@ -87,5 +87,6 @@ extern programInfo_t program[NUM_PROGRAMS];
 - (void)setBrushScale:(CGFloat)scale;
 - (void)setBrushPixelStep:(CGFloat)pixelStep;
 - (void)setBrushImage:(NSString*)image;
+- (void)setBlendMode:(GLenum)blendMode;
 
 @end

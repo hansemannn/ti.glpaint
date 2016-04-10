@@ -289,9 +289,7 @@ programInfo_t program[NUM_PROGRAMS] = {
     
     glDisable(GL_DITHER);
     glEnable(GL_TEXTURE_2D);
-    //   glEnable(GL_BLEND);
-    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
-    
+
     return texture;
 }
 
@@ -331,7 +329,7 @@ programInfo_t program[NUM_PROGRAMS] = {
     
     // Enable blending and set a blending function appropriate for premultiplied alpha pixel data
     glEnable(GL_BLEND);
-    //    glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+    glBlendFunc(GL_ONE, GL_ONE_MINUS_DST_COLOR);
     
     // Playback recorded path, which is "Shake Me"
     NSMutableArray* recordedPaths = [NSMutableArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"Recording" ofType:@"data"]];
@@ -601,6 +599,13 @@ programInfo_t program[NUM_PROGRAMS] = {
         glUseProgram(program[PROGRAM_POINT].id);
         glUniform4fv(program[PROGRAM_POINT].uniform[UNIFORM_VERTEX_COLOR], 1, brushColor);
     }
+}
+
+- (void)setBlendMode:(GLenum)blendMode
+{
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_ONE, blendMode);
+
 }
 
 - (BOOL)canBecomeFirstResponder {

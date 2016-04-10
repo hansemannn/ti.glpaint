@@ -33,6 +33,9 @@ btn2.addEventListener("click", function() {
     paintView.erase();
 });
 
+// Change the blend mode
+paintView.setBlendMode(module.BLEND_MODE_GL_ONE_MINUS_SRC_COLOR);
+
 win.add(paintView);
 win.add(btn1);
 win.add(btn2);
