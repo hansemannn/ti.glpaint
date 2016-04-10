@@ -15,4 +15,4 @@ name: ti.glpaint
 moduleid: ti.glpaint
 guid: dc5c5d76-c71b-4f70-bcf0-f47b82116cb4
 platform: iphone
-minsdk: 5.4.0
+minsdk: 5.1.2
