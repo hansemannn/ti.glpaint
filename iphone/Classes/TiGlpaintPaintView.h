@@ -84,7 +84,6 @@ extern programInfo_t program[NUM_PROGRAMS];
 
 - (void)erase;
 - (void)setBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue opacity:(CGFloat)opacity;
-- (void)setBrushOpacity:(CGFloat)opacity;
 - (void)setBrushScale:(CGFloat)scale;
 - (void)setBrushPixelStep:(CGFloat)pixelStep;
 - (void)setBrushImage:(NSString*)image;

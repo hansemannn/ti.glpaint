@@ -1,39 +1,39 @@
-// This is a test harness for your module
-// You should do something interesting in this harness
-// to test out the module and to provide instructions
-// to users on how to use it by example.
-
-
-// open a single window
+var module = require("ti.glpaint");
 var win = Ti.UI.createWindow({
-	backgroundColor:'white'
+    backgroundColor: "#fff"
 });
-var label = Ti.UI.createLabel();
-win.add(label);
+var paintView = module.createPaintView({
+    brush: {
+        opacity: 10,
+        tintColor: "red",
+        image: "brush.png"
+    },
+    top: 100
+});
+
+var btn1 = Ti.UI.createButton({
+    title: "Change to green color",
+    top: 30
+});
+
+var btn2 = Ti.UI.createButton({
+    title: "Erase",
+    top: 50
+});
+
+btn1.addEventListener("click", function() {
+    paintView.setBrush({
+    opacity: 5,
+        tintColor: "green",
+        image: "brush2.png"
+    });
+});
+
+btn2.addEventListener("click", function() {
+    paintView.erase();
+});
+
+win.add(paintView);
+win.add(btn1);
+win.add(btn2);
 win.open();
-
-// TODO: write your module tests here
-var ti_glpaint = require('ti.glpaint');
-Ti.API.info("module is => " + ti_glpaint);
-
-label.text = ti_glpaint.example();
-
-Ti.API.info("module exampleProp is => " + ti_glpaint.exampleProp);
-ti_glpaint.exampleProp = "This is a test value";
-
-if (Ti.Platform.name == "android") {
-	var proxy = ti_glpaint.createExample({
-		message: "Creating an example Proxy",
-		backgroundColor: "red",
-		width: 100,
-		height: 100,
-		top: 100,
-		left: 150
-	});
-
-	proxy.printMessage("Hello world!");
-	proxy.message = "Hi world!.  It's me again.";
-	proxy.printMessage("Hello world!");
-	win.add(proxy);
-}
-
