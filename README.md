@@ -4,7 +4,7 @@
 
 <img width="310" src="http://abload.de/img/simulatorscreenshot09b4jwb.png">
 
-## Example
+## Usage
 
 ```js
 var module = require("ti.glpaint");
@@ -48,27 +48,6 @@ win.add(btn2);
 win.open();
 ```
 
-## Blend Modes
-You can change the blend mode by setting the `blendMode` property like this: `paintView.setBlendMode(module.BLEND_MODE_GL_SRC_COLOR);`.
-Available constants are:
-```
-BLEND_MODE_GL_ZERO
-BLEND_MODE_GL_ONE
-BLEND_MODE_GL_SRC_COLOR
-BLEND_MODE_GL_ONE_MINUS_SRC_COLOR
-BLEND_MODE_GL_DST_COLOR
-BLEND_MODE_GL_ONE_MINUS_DST_COLOR
-BLEND_MODE_GL_SRC_ALPHA
-BLEND_MODE_GL_ONE_MINUS_SRC_ALPHA
-BLEND_MODE_GL_DST_ALPHA
-BLEND_MODE_GL_ONE_MINUS_DST_ALPHA
-BLEND_MODE_GL_CONSTANT_COLOR
-BLEND_MODE_GL_ONE_MINUS_CONSTANT_COLOR
-BLEND_MODE_GL_CONSTANT_ALPHA
-BLEND_MODE_GL_ONE_MINUS_CONSTANT_ALPHA
-BLEND_MODE_GL_SRC_ALPHA_SATURATE
-```
-
 ## Copyright
 
-&copy; 2016 Appcelerator, Inc.
+&copy; 2016 by Hans Knoechel

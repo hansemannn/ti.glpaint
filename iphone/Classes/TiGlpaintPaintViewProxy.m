@@ -42,12 +42,6 @@
   //  [(TiGlpaintPaintView*)[self view] setBrushPixelStep:[TiUtils floatValue:pixelStep]];
 }
 
-- (void)setBlendMode:(id)value
-{
-    ENSURE_TYPE(value, NSNumber);
-    [(TiGlpaintPaintView*)[self view] setBlendMode:[TiUtils intValue:value]];
-}
-
 #pragma mark Helper
 
 USE_VIEW_FOR_CONTENT_WIDTH
