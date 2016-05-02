@@ -157,7 +157,7 @@ programInfo_t program[NUM_PROGRAMS] = {
         // Make sure to start with a cleared buffer
         needsErase = YES;
         brushPixelStep = 3;
-        brushScale = 2;
+        brushScale = 1;
         brushImage = @"brush.png";
     }
     
@@ -234,7 +234,7 @@ programInfo_t program[NUM_PROGRAMS] = {
             glUniformMatrix4fv(program[PROGRAM_POINT].uniform[UNIFORM_MVP], 1, GL_FALSE, MVPMatrix.m);
             
             // point size
-            glUniform1f(program[PROGRAM_POINT].uniform[UNIFORM_POINT_SIZE], brushTexture.width / brushScale);
+            glUniform1f(program[PROGRAM_POINT].uniform[UNIFORM_POINT_SIZE], brushTexture.width * brushScale);
             
             // initialize brush color
             glUniform4fv(program[PROGRAM_POINT].uniform[UNIFORM_VERTEX_COLOR], 1, brushColor);
@@ -266,7 +266,7 @@ programInfo_t program[NUM_PROGRAMS] = {
         // Allocate  memory needed for the bitmap context
         brushData = (GLubyte *) calloc(width_ * height_ * 4, sizeof(GLubyte));
         // Use  the bitmatp creation function provided by the Core Graphics framework.
-        brushContext = CGBitmapContextCreate(brushData, width_, height_, 8, width_ * 4, CGImageGetColorSpace(brushImage_), kCGImageAlphaPremultipliedLast);
+        brushContext = CGBitmapContextCreate(brushData, width_, height_, 8, width_ * 4, CGImageGetColorSpace(brushImage_), kCGImageAlphaPremultipliedFirst);
         // After you create the context, you can draw the  image to the context.
         CGContextDrawImage(brushContext, CGRectMake(0.0, 0.0, (CGFloat)width_, (CGFloat)height_), brushImage_);
         // You don't need the context at this point, so you need to release it to avoid memory leaks.
@@ -289,7 +289,7 @@ programInfo_t program[NUM_PROGRAMS] = {
     
     glDisable(GL_DITHER);
     glEnable(GL_TEXTURE_2D);
-    //   glEnable(GL_BLEND);
+//  glEnable(GL_BLEND);
     glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
     
     return texture;
@@ -560,10 +560,22 @@ programInfo_t program[NUM_PROGRAMS] = {
 - (void)setBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue opacity:(CGFloat)opacity
 {
     // Update the brush color
-    brushColor[0] = red * opacity;
-    brushColor[1] = green * opacity;
-    brushColor[2] = blue * opacity;
+    brushColor[0] = red;
+    brushColor[1] = green;
+    brushColor[2] = blue;
     brushColor[3] = opacity;
+    
+    if (initialized) {
+        glUseProgram(program[PROGRAM_POINT].id);
+        glUniform4fv(program[PROGRAM_POINT].uniform[UNIFORM_VERTEX_COLOR], 1, brushColor);
+    }
+}
+
+- (void)setBrushImage:(NSString*)image
+{
+    RELEASE_TO_NIL(brushImage);
+    brushImage = [image retain];
+    brushTexture = [self textureFromName:brushImage];
     
     if (initialized) {
         glUseProgram(program[PROGRAM_POINT].id);
@@ -577,26 +589,24 @@ programInfo_t program[NUM_PROGRAMS] = {
     
     if (initialized) {
         glUseProgram(program[PROGRAM_POINT].id);
-        glUniform4fv(program[PROGRAM_POINT].uniform[UNIFORM_VERTEX_COLOR], 1, brushColor);
+        glUniform1f(program[PROGRAM_POINT].uniform[UNIFORM_POINT_SIZE], brushTexture.width * brushScale);
     }
 }
 
+- (void)setErasing:(BOOL)erasing
+{
+    if (erasing) {
+        glBlendFunc(GL_ZERO, GL_ONE_MINUS_SRC_ALPHA);
+    } else {
+        glBlendFunc(GL_ONE, GL_ONE_MINUS_SRC_ALPHA);
+    }
+}
+
+// TODO: Not working, yet
 - (void)setBrushPixelStep:(CGFloat)pixelStep
 {
     brushPixelStep = pixelStep;
     
-    if (initialized) {
-        glUseProgram(program[PROGRAM_POINT].id);
-        glUniform4fv(program[PROGRAM_POINT].uniform[UNIFORM_VERTEX_COLOR], 1, brushColor);
-    }
-}
-
-- (void)setBrushImage:(NSString*)image
-{
-    // Load the brush texture
-    RELEASE_TO_NIL(brushImage);
-    brushImage = [image retain];
-
     if (initialized) {
         glUseProgram(program[PROGRAM_POINT].id);
         glUniform4fv(program[PROGRAM_POINT].uniform[UNIFORM_VERTEX_COLOR], 1, brushColor);
