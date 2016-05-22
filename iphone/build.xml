@@ -1,0 +1,47 @@
+<project name="ti.glpaint" basedir="." default="main">
+	<property environment="env"/>
+	<property file="manifest" prefix="manifest"/>
+
+	<target name="setup">
+		<echo message="Building TiGLPaint Module"/>
+		<property name="moduleFileName" value="${manifest.moduleid}-${manifest.platform}-${manifest.version}.zip"/>
+	</target>
+
+	<target name="clean">
+		<delete dir="build"/>
+	</target>
+
+	<target name="build" description="Build module using appc-cli">
+		<exec failonerror="true" executable="appc">
+			<arg value="ti"/>
+			<arg value="build"/>
+			<arg value="--platform"/>
+			<arg value="ios"/>
+			<arg value="--build-only"/>
+		</exec>
+	</target>
+
+	<target name="copyZip">
+		<copy file="${moduleFileName}" todir="${env.TITANIUM_ROOT}"/>
+	</target>
+
+	<target name="runTestSim" description="Runs Test App on Simulator">
+		<exec failonerror="true" executable="appc">
+			<arg value="ti"/>
+			<arg value="build"/>
+			<arg value="--platform"/>
+			<arg value="ios"/>
+			<arg value="--skip-js-minify"/>
+			<arg value="--force"/>
+			<arg value="-C"/>
+      <arg value="A4B338BF-6B08-4FFA-A285-8CEA680B3FFA"/>
+			<arg value="-T"/>
+      <arg value="simulator"/>
+			<arg value="-d"/>
+			<arg value="../../TestTiGLPaintClassic/"/>
+		</exec>
+	</target>
+
+	<target name="main" depends="clean,setup,build,copyZip"/>
+	<target name="includetest" depends="main,runTestSim"/>
+</project>
