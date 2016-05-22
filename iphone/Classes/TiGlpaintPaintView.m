@@ -391,6 +391,11 @@ programInfo_t program[NUM_PROGRAMS] = {
         glDeleteTextures(1, &brushTexture.id);
         brushTexture.id = 0;
     }
+    // [JVP] if addImge solution uses imageTexture, we should prolly dealloc here
+    if (imageTexture.id) {
+        glDeleteTextures(1, &imageTexture.id);
+        imageTexture.id = 0;
+    }
     // vbo
     if (vboId) {
         glDeleteBuffers(1, &vboId);
@@ -612,6 +617,93 @@ programInfo_t program[NUM_PROGRAMS] = {
         glUniform4fv(program[PROGRAM_POINT].uniform[UNIFORM_VERTEX_COLOR], 1, brushColor);
     }
 }
+
+// [JVP] borrowed texImage2D from opengl module and modified to use args as dictionary directly
+-(void)texImage2D:(id)args
+{
+    
+    ENSURE_ARG_COUNT(args, 7)
+
+    GLint level = (GLint)[TiUtils intValue:[args valueForKey:@"level"] def:0];
+    GLint internalFormat = (GLint)[TiUtils intValue:[args valueForKey:@"internalFormat"] def:0];
+    GLsizei inputImageWidth = (GLsizei)[TiUtils intValue:[args valueForKey:@"width"] def:0];
+    GLsizei inputImageHeight = (GLsizei)[TiUtils intValue:[args valueForKey:@"height"] def:0];
+    GLint borderWidth = (GLint)[TiUtils intValue:[args valueForKey:@"border"] def:0];
+    GLenum imageType = (GLenum)[TiUtils intValue:[args valueForKey:@"type"] def:0];
+    
+    // Load the image from the file path
+    NSString *imagePath = [args valueForKey:@"file"];
+    NSData *texData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:imagePath]];
+
+    UIImage *image = [[UIImage alloc] initWithData:texData];
+    
+    if (image == nil) {
+        NSLog(@"File error in texImage2D: %s", [imagePath UTF8String]);
+    }
+
+    NSLog(@"1 in texImage2D %d %x %d %d %d %d %s", level, internalFormat, inputImageWidth, inputImageHeight, borderWidth, imageType, [imagePath UTF8String]);
+    
+    // Set the image context definition using width and height
+    GLuint imageWidth = (inputImageWidth == 0) ? CGImageGetWidth(image.CGImage) : inputImageWidth;
+    GLuint imageHeight = (inputImageHeight == 0) ? CGImageGetHeight(image.CGImage) : inputImageHeight;
+    
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    GLubyte* imageData = malloc( imageHeight * imageWidth * 4 );
+    CGContextRef imageContext = CGBitmapContextCreate( imageData, imageWidth, imageHeight, 8, 4 * imageWidth, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big );
+
+    // Flip the Y-axis
+    CGContextTranslateCTM (imageContext, 0, imageHeight);
+    CGContextScaleCTM (imageContext, 1.0, -1.0);
+    
+    // Draw the image in the context
+    CGColorSpaceRelease( colorSpace );
+    CGContextClearRect( imageContext, CGRectMake( 0, 0, imageWidth, imageHeight ) );
+    CGContextDrawImage( imageContext, CGRectMake( 0, 0, imageWidth, imageHeight ), image.CGImage );
+
+    glTexImage2D(GL_TEXTURE_2D, level, internalFormat, imageWidth, imageHeight, borderWidth, internalFormat, imageType, imageData);
+
+    NSLog(@"in texImage2D %d %x %d %d %d %d %s %x", level, internalFormat, imageWidth, imageHeight, borderWidth, imageType, [imagePath UTF8String], glGetError());
+    CGContextRelease(imageContext);
+    free(imageData);
+    [image release];
+    [texData release];
+
+}
+
+-(void)addImage:(id)args
+{
+    // [JVP] imageTexture is declared in header file
+    glGenTextures(1, &imageTexture.id);
+    glBindTexture(GL_TEXTURE_2D, imageTexture.id);
+    
+    // [JVP] For now trying to use texImage2D method borrowed from opengl module, however
+    // perhaps should consider instead modifying the textureFromName method already in
+    // this module to handle both the "brush" image and the image to be loaded here
+    
+    NSMutableDictionary *texImage2Dargs = [NSMutableDictionary dictionary];
+    [texImage2Dargs setObject:@0 forKey:@"level"];
+    [texImage2Dargs setObject:@GL_RGBA forKey:@"internalFormat"];
+    [texImage2Dargs setObject:[args valueForKey:@"width"] forKey:@"width"];
+    [texImage2Dargs setObject:[args valueForKey:@"height"] forKey:@"height"];
+    [texImage2Dargs setObject:@0 forKey:@"border"];
+    [texImage2Dargs setObject:@GL_UNSIGNED_BYTE forKey:@"type"];
+    [texImage2Dargs setObject:[args valueForKey:@"image"] forKey:@"file"];
+    [self texImage2D:texImage2Dargs];
+    
+    // [JVP] Not sure what needs to be done here exactly...
+    // trying differnet things from online exmaples - this prolly needs to be reconsidered
+    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, imageTexture.id, 0);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    
+    glActiveTexture(GL_TEXTURE1); // is this required? using GL_TEXTURE1 to try to differentiate from GL_TEXTURE0 that the brush should be using - no luck yet
+    
+    glBindTexture(GL_TEXTURE_2D, imageTexture.id);
+    
+}
+
+
+
 
 - (BOOL)canBecomeFirstResponder {
     return YES;

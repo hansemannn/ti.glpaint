@@ -57,6 +57,7 @@ extern programInfo_t program[NUM_PROGRAMS];
     // OpenGL name for the depth buffer that is attached to viewFramebuffer, if it exists (0 if it does not exist)
     GLuint depthRenderbuffer;
     
+    textureInfo_t imageTexture;     // [JVP] image texture
     textureInfo_t brushTexture;     // brush texture
     GLfloat brushColor[4];          // brush color
     
@@ -88,5 +89,6 @@ extern programInfo_t program[NUM_PROGRAMS];
 - (void)setBrushPixelStep:(CGFloat)pixelStep;
 - (void)setBrushImage:(NSString*)image;
 - (void)setErasing:(BOOL)erasing;
+- (void)addImage:(id)args;  // [JVP]
 
 @end

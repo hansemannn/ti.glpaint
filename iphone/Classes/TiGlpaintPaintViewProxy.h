@@ -13,4 +13,5 @@
 - (void)erase:(id)unused;
 - (void)setBrush:(id)args;
 - (void)setErasing:(id)value;
+- (void)addImage:(id)args; // [JVP]
 @end

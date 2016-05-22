@@ -48,6 +48,15 @@
     [(TiGlpaintPaintView*)[self view] setErasing:[TiUtils boolValue:value]];
 }
 
+// [JVP] adding thin proxy method for exposure to titanium developer
+- (void)addImage:(id)args
+{
+    ENSURE_UI_THREAD(addImage, args);
+    ENSURE_SINGLE_ARG(args, NSDictionary);
+    // [JVP] call the core functional method with the same arguments
+    [(TiGlpaintPaintView*)[self view] addImage:args];
+}
+
 #pragma mark Helper
 
 USE_VIEW_FOR_CONTENT_WIDTH
