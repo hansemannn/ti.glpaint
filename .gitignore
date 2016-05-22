@@ -1,2 +1,5 @@
-iphone/build
-iphone/ti.glpaint.xcodeproj/project.xcworkspace/xcuserdata/hans.xcuserdatad/UserInterfaceState.xcuserstate
+iphone/build/
+iphone/ti.glpaint.xcodeproj/project.xcworkspace/xcuserdata
+iphone/ti.glpaint.xcodeproj/xcuserdata
+*.zip
+
