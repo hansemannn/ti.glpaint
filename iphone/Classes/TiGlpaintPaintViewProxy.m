@@ -57,6 +57,16 @@
     [(TiGlpaintPaintView*)[self view] addImage:args];
 }
 
+- (TiBlob*)takeGLSnapshot:(id)unused
+{
+    UIImage *image = [(TiGlpaintPaintView*)[self view] takeGLSnapshot];
+    
+    TiBlob *blob = [[[TiBlob alloc] _initWithPageContext:[self pageContext]] autorelease];
+    [blob setImage:image];
+
+    return blob;
+}
+
 #pragma mark Helper
 
 USE_VIEW_FOR_CONTENT_WIDTH

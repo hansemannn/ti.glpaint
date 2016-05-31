@@ -90,5 +90,6 @@ extern programInfo_t program[NUM_PROGRAMS];
 - (void)setBrushImage:(NSString*)image;
 - (void)setErasing:(BOOL)erasing;
 - (void)addImage:(id)args;  // [JVP]
+- (UIImage*)takeGLSnapshot;
 
 @end
