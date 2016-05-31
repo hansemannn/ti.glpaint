@@ -88,5 +88,6 @@ extern programInfo_t program[NUM_PROGRAMS];
 - (void)setBrushPixelStep:(CGFloat)pixelStep;
 - (void)setBrushImage:(NSString*)image;
 - (void)setErasing:(BOOL)erasing;
+- (UIImage*)takeGLSnapshot;
 
 @end

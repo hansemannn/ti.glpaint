@@ -613,6 +613,55 @@ programInfo_t program[NUM_PROGRAMS] = {
     }
 }
 
+-(UIImage*)takeGLSnapshot
+{    
+    // The image size should be grabbed from your ESRenderer class.
+    // That parameter is get in renderer function:
+    // - (BOOL) resizeFromLayer:(CAEAGLLayer *)layer {
+    // glGetRenderbufferParameterivOES(GL_RENDERBUFFER_OES, GL_RENDERBUFFER_WIDTH_OES, &backingWidth);
+    GLubyte *buffer = (GLubyte *) malloc(backingWidth * backingHeight * 4);
+    GLubyte *buffer2 = (GLubyte *) malloc(backingWidth * backingHeight * 4);
+    
+    glReadPixels(0, 0, backingWidth, backingHeight, GL_RGBA, GL_UNSIGNED_BYTE,
+                 (GLvoid *)buffer);
+    for (int y=0; y<backingHeight; y++) {
+        for (int x=0; x<backingWidth*4; x++) {
+            buffer2[y * 4 * backingWidth + x] =
+            buffer[(backingHeight - y - 1) * backingWidth * 4 + x];
+        }
+    }
+    free(buffer);
+    CGDataProviderRef provider = CGDataProviderCreateWithData(NULL, buffer2,
+                                                              backingWidth * backingHeight * 4,
+                                                              myProviderReleaseData);
+    // set up for CGImage creation
+    int bitsPerComponent = 8;
+    int bitsPerPixel = 32;
+    int bytesPerRow = 4 * backingWidth;
+    CGColorSpaceRef colorSpaceRef = CGColorSpaceCreateDeviceRGB();
+    // Use this to retain alpha
+    CGBitmapInfo bitmapInfo = kCGImageAlphaPremultipliedLast;
+    CGColorRenderingIntent renderingIntent = kCGRenderingIntentDefault;
+    CGImageRef imageRef = CGImageCreate(backingWidth, backingHeight,
+                                        bitsPerComponent, bitsPerPixel,
+                                        bytesPerRow, colorSpaceRef,
+                                        bitmapInfo, provider,
+                                        NULL, NO,
+                                        renderingIntent);
+    // this contains our final image.
+    UIImage *newUIImage = [UIImage imageWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    CGColorSpaceRelease(colorSpaceRef);
+    CGDataProviderRelease(provider);
+    
+    return newUIImage;
+}
+
+static void myProviderReleaseData (void *info,const void *data,size_t size)
+{
+    free((void*)data);
+}
+
 - (BOOL)canBecomeFirstResponder {
     return YES;
 }
