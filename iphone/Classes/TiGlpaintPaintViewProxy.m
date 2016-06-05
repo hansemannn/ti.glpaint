@@ -18,28 +18,18 @@
     [(TiGlpaintPaintView*)[self view] erase];
 }
 
-- (void)setBrush:(id)args
+- (void)setBrushColor:(id)value
 {
-    ENSURE_TYPE(args, NSDictionary);
+    ENSURE_SINGLE_ARG(value, NSString);
     
-    id tintColor = [args valueForKey:@"tintColor"];
-    id opacity = [args valueForKey:@"opacity"];
-    id image = [args valueForKey:@"image"];
-    id scale = [args valueForKey:@"scale"];
-  //  id pixelStep = [args valueForKey:@"pixelStep"];
+    [(TiGlpaintPaintView*)[self view] setBrushColor:[[TiUtils colorValue:value] _color]];
+}
+
+- (void)setBrushImage:(id)value
+{
+    ENSURE_SINGLE_ARG(value, NSString);
     
-    ENSURE_TYPE(tintColor, NSString);
-    ENSURE_TYPE(opacity, NSNumber);
-    ENSURE_TYPE(image, NSString);
-    ENSURE_TYPE(scale, NSNumber);
-  //  ENSURE_TYPE(pixelStep, NSNumber);
-    
-    const CGFloat *components = CGColorGetComponents([[[TiUtils colorValue:tintColor] _color] CGColor]);
-    [(TiGlpaintPaintView*)[self view] setBrushColorWithRed:components[0] green:components[1] blue:components[2] opacity:[TiUtils floatValue:opacity def:1.0]];
-    
-    [(TiGlpaintPaintView*)[self view] setBrushImage:[TiUtils stringValue:image]];
-    [(TiGlpaintPaintView*)[self view] setBrushScale:[TiUtils floatValue:scale]];
-  //  [(TiGlpaintPaintView*)[self view] setBrushPixelStep:[TiUtils floatValue:pixelStep]];
+    [(TiGlpaintPaintView*)[self view] setBrushImage:[TiUtils image:value proxy:self]];
 }
 
 - (void)setErasing:(id)value

@@ -11,6 +11,6 @@
 }
 
 - (void)erase:(id)unused;
-- (void)setBrush:(id)args;
 - (void)setErasing:(id)value;
+
 @end

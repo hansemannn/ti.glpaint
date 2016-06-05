@@ -8,7 +8,5 @@
 #import "TiModule.h"
 
 @interface TiGlpaintModule : TiModule
-{
-}
 
 @end
