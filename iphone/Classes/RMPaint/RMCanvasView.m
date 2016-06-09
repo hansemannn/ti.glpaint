@@ -35,9 +35,6 @@
     
     if (!context || ![EAGLContext setCurrentContext:context]) return;
     
-    // Set the view's scale factor
-    self.contentScaleFactor = 1.0;
-	
     // Setup OpenGL states
     glMatrixMode(GL_PROJECTION);
     CGRect frame = _frame;
@@ -55,11 +52,14 @@
     
     // Make sure to start with a cleared buffer
     needsErase = YES;
+    
+    brushPixelStep_ = 1.0;
+    brushScale_ = .5;
 }
 
 - (id) initWithCoder:(NSCoder *)aDecoder {
     if ((self = [super initWithCoder:aDecoder])) {
-//        [self initialize:];
+//        [self initialize:self.frame];
 	}
 	return self; 
 }
@@ -103,7 +103,7 @@
 		vertexBuffer = malloc(vertexMax * 2 * sizeof(GLfloat));
 	
 	// Add points to the buffer so there are drawing points every X pixels
-	count = MAX(ceilf(sqrtf((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)) / kBrushPixelStep), 1);
+	count = MAX(ceilf(sqrtf((end.x - start.x) * (end.x - start.x) + (end.y - start.y) * (end.y - start.y)) / brushPixelStep_), 1);
 	for(i = 0; i < count; ++i) {
 		if(vertexCount == vertexMax) {
 			vertexMax = 2 * vertexMax;
@@ -258,7 +258,7 @@
     
     glEnable(GL_POINT_SPRITE_OES);
     glTexEnvf(GL_POINT_SPRITE_OES, GL_COORD_REPLACE_OES, GL_TRUE);
-    glPointSize(width / kBrushScale);
+    glPointSize(width * brushScale_);
 }
 
 - (void) setBrushColor:(UIColor *)color {
@@ -266,6 +266,20 @@
     CGFloat red, green, blue, alpha;
     [self.brushColor getRed:&red green:&green blue:&blue alpha:&alpha];
     glColor4f(red * alpha, green * alpha, blue * alpha, alpha);    
+}
+
+- (void) setBrushScale:(CGFloat)scale
+{
+    brushScale_ = scale;
+    
+    CGImageRef brushImage = self.brush.CGImage;
+    int width = (int)CGImageGetWidth(brushImage);
+    glPointSize(width * brushScale_);
+}
+
+- (void) setBrushPixelStep:(CGFloat)pixelStep
+{
+    brushPixelStep_ = pixelStep;
 }
 
 - (GLint)backingWidth

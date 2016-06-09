@@ -22,14 +22,28 @@
 {
     ENSURE_SINGLE_ARG(value, NSString);
     
-    [(TiGlpaintPaintView*)[self view] setBrushColor:[[TiUtils colorValue:value] _color]];
+    [[(TiGlpaintPaintView*)[self view] paintView] setBrushColor:[[TiUtils colorValue:value] _color]];
 }
 
 - (void)setBrushImage:(id)value
 {
     ENSURE_SINGLE_ARG(value, NSString);
     
-    [(TiGlpaintPaintView*)[self view] setBrushImage:[TiUtils image:value proxy:self]];
+    [[(TiGlpaintPaintView*)[self view] paintView] setBrush:[TiUtils image:value proxy:self]];
+}
+
+- (void)setBrushScale:(id)value
+{
+    ENSURE_SINGLE_ARG(value, NSNumber);
+    
+    [[(TiGlpaintPaintView*)[self view] paintView] setBrushScale:[TiUtils floatValue:value def:2.0]];
+}
+
+- (void)setBrushPixelStep:(id)value
+{
+    ENSURE_SINGLE_ARG(value, NSNumber);
+    
+    [[(TiGlpaintPaintView*)[self view] paintView] setBrushPixelStep:[TiUtils floatValue:value def:1.0]];
 }
 
 - (void)setErasing:(id)value

@@ -28,6 +28,7 @@
 
 - (void) handleDrag:(RMPaintGestureRecognizer*)sender {
     NSSet* touches = sender.touches;
+    
     for (UITouch* touch in touches) {
         [self renderLineFromTouch:touch];        
     }
@@ -36,6 +37,7 @@
 - (void) renderLineFromTouch:(UITouch*)touch {
     CGPoint end = [touch locationInView:self];
     CGPoint start = [touch previousLocationInView:self];
+    
     [self renderLineFromPoint:start toPoint:end];    
 }
 

@@ -147,16 +147,6 @@
     return paintSession;
 }
 
-- (void)setBrushImage:(UIImage*)image
-{
-    [[self paintView] setBrush:image];
-}
-
-- (void)setBrushColor:(UIColor*)color
-{
-    [[self paintView] setBrushColor:color];
-}
-
 - (void)setErasing:(BOOL)erasing
 {
     if (erasing) {
@@ -225,10 +215,10 @@ static void myProviderReleaseData (void *info,const void *data,size_t size)
 {
     if ([[self proxy] _hasListeners:@"paintstep"]) {
         [[self proxy] fireEvent:@"paintstep" withObject:@{
-            @"startX": NUMFLOAT(step.start.x),
-            @"startY": NUMFLOAT(step.start.y),
-            @"endX": NUMFLOAT(step.end.x),
-            @"endY": NUMFLOAT(step.end.y)
+            @"startX": NUMFLOAT(floorf(step.start.x)),
+            @"startY": NUMFLOAT(floorf(step.start.y)),
+            @"endX": NUMFLOAT(floorf(step.end.x)),
+            @"endY": NUMFLOAT(floorf(step.end.y))
         }];
     }
 }

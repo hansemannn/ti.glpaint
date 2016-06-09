@@ -4,8 +4,6 @@
 #import <OpenGLES/ES1/glext.h>
 #import "RMPaintStep.h"
 
-#define kBrushPixelStep		1
-#define kBrushScale			2
 #define kLuminosity			1.0
 #define kSaturation			1.0
 
@@ -27,14 +25,18 @@
 	GLuint	brushTexture;
 	Boolean needsErase;	
     
-    UIImage* brush_;
-    UIColor* brushColor_;
+    CGFloat brushScale_;
+    CGFloat brushPixelStep_;
+    UIImage *brush_;
+    UIColor *brushColor_;
     __unsafe_unretained id<RMCanvasViewDelegate> delegate_;
 }
 
 // Brush dimensions dimensions must be a power of 2.
 @property(nonatomic, retain) UIImage* brush;
 @property(nonatomic, retain) UIColor* brushColor;
+@property(nonatomic) CGFloat brushPixelStep;
+@property(nonatomic) CGFloat brushScale;
 @property(assign) id<RMCanvasViewDelegate> delegate;
 
 - (void)initialize:(CGRect)frame;

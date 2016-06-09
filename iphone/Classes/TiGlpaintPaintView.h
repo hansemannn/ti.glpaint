@@ -23,8 +23,6 @@
 - (RMPaintSession*)paintSession;
 
 - (void)erase;
-- (void)setBrushColor:(UIColor*)color;
-- (void)setBrushImage:(UIImage*)image;
 - (void)setErasing:(BOOL)erasing;
 - (UIImage*)takeGLSnapshot;
 
