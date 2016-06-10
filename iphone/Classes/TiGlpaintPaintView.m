@@ -523,6 +523,7 @@ programInfo_t program[NUM_PROGRAMS] = {
 // Handles the continuation of a touch.
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    NSMutableDictionary *jsEvent = [NSMutableDictionary dictionary];
     CGRect				bounds = [self bounds];
     UITouch*			touch = [[event touchesForView:self] anyObject];
     
@@ -540,11 +541,14 @@ programInfo_t program[NUM_PROGRAMS] = {
     
     // Render the stroke
     [self renderLineFromPoint:previousLocation toPoint:location];
+    [self.proxy fireEvent:@"touchesMoved"];
+    
 }
 
 // Handles the end of a touch event when the touch is a tap.
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    NSMutableDictionary *jsEvent = [NSMutableDictionary dictionary];
     CGRect				bounds = [self bounds];
     UITouch*            touch = [[event touchesForView:self] anyObject];
     if (firstTouch) {
@@ -552,6 +556,7 @@ programInfo_t program[NUM_PROGRAMS] = {
         previousLocation = [touch previousLocationInView:self];
         previousLocation.y = bounds.size.height - previousLocation.y;
         [self renderLineFromPoint:previousLocation toPoint:location];
+        [self.proxy fireEvent:@"touchesEnded"];
     }
 }
 
@@ -565,9 +570,9 @@ programInfo_t program[NUM_PROGRAMS] = {
 - (void)setBrushColorWithRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue opacity:(CGFloat)opacity
 {
     // Update the brush color
-    brushColor[0] = red;
-    brushColor[1] = green;
-    brushColor[2] = blue;
+    brushColor[0] = red * opacity;
+    brushColor[1] = green * opacity;
+    brushColor[2] = blue * opacity;
     brushColor[3] = opacity;
     
     if (initialized) {
