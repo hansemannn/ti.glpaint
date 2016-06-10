@@ -518,6 +518,7 @@ programInfo_t program[NUM_PROGRAMS] = {
     // Convert touch point from UIView referential to OpenGL one (upside-down flip)
     location = [touch locationInView:self];
     location.y = bounds.size.height - location.y;
+    [self.proxy fireEvent:@"touchesBegan"];
 }
 
 // Handles the continuation of a touch.
