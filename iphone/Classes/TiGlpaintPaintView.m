@@ -518,13 +518,18 @@ programInfo_t program[NUM_PROGRAMS] = {
     // Convert touch point from UIView referential to OpenGL one (upside-down flip)
     location = [touch locationInView:self];
     location.y = bounds.size.height - location.y;
-    [self.proxy fireEvent:@"touchesBegan"];
+    
+    if ([[self proxy] _hasListeners:@"touchesBegan"]) {
+        [[self proxy] fireEvent:@"touchesBegan" withObject:@{
+            @"x": NUMDOUBLE(location.x),
+            @"y": NUMDOUBLE(location.y)
+        }];
+    }
 }
 
 // Handles the continuation of a touch.
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSMutableDictionary *jsEvent = [NSMutableDictionary dictionary];
     CGRect				bounds = [self bounds];
     UITouch*			touch = [[event touchesForView:self] anyObject];
     
@@ -542,14 +547,20 @@ programInfo_t program[NUM_PROGRAMS] = {
     
     // Render the stroke
     [self renderLineFromPoint:previousLocation toPoint:location];
-    [self.proxy fireEvent:@"touchesMoved"];
     
+    if ([[self proxy] _hasListeners:@"touchesMoved"]) {
+        [[self proxy] fireEvent:@"touchesMoved" withObject:@{
+            @"orginX": NUMDOUBLE(previousLocation.x),
+            @"orginY": NUMDOUBLE(previousLocation.y),
+            @"destinationX": NUMDOUBLE(location.x),
+            @"destinationY": NUMDOUBLE(location.y)
+        }];
+    }
 }
 
 // Handles the end of a touch event when the touch is a tap.
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    NSMutableDictionary *jsEvent = [NSMutableDictionary dictionary];
     CGRect				bounds = [self bounds];
     UITouch*            touch = [[event touchesForView:self] anyObject];
     if (firstTouch) {
@@ -557,7 +568,15 @@ programInfo_t program[NUM_PROGRAMS] = {
         previousLocation = [touch previousLocationInView:self];
         previousLocation.y = bounds.size.height - previousLocation.y;
         [self renderLineFromPoint:previousLocation toPoint:location];
-        [self.proxy fireEvent:@"touchesEnded"];
+
+        if ([[self proxy] _hasListeners:@"touchesEnded"]) {
+            [[self proxy] fireEvent:@"touchesEnded" withObject:@{
+                @"orginX": NUMDOUBLE(previousLocation.x),
+                @"orginY": NUMDOUBLE(previousLocation.y),
+                @"destinationX": NUMDOUBLE(location.x),
+                @"destinationY": NUMDOUBLE(location.y)
+            }];
+        }
     }
 }
 
