@@ -20,6 +20,21 @@ var paintView = module.createPaintView({
     top: 100
 });
 
+paintView.addEventListener("touchesBegan", function(e) {
+    Ti.API.info('Touches began');
+    Ti.API.info(e);
+});
+
+paintView.addEventListener("touchesMoved", function(e) {
+    Ti.API.info('Touches moved');
+    Ti.API.info(e);
+});
+
+paintView.addEventListener("touchesEnded", function(e) {
+    Ti.API.info('Touches ended');
+    Ti.API.info(e);
+});
+
 var btn1 = Ti.UI.createButton({
     title: "Change to green color",
     top: 30
