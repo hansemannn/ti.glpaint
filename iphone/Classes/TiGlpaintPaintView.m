@@ -569,14 +569,13 @@ programInfo_t program[NUM_PROGRAMS] = {
         previousLocation.y = bounds.size.height - previousLocation.y;
         [self renderLineFromPoint:previousLocation toPoint:location];
 
-        if ([[self proxy] _hasListeners:@"touchesEnded"]) {
-            [[self proxy] fireEvent:@"touchesEnded" withObject:@{
-                @"orginX": NUMDOUBLE(previousLocation.x),
-                @"orginY": NUMDOUBLE(previousLocation.y),
-                @"destinationX": NUMDOUBLE(location.x),
-                @"destinationY": NUMDOUBLE(location.y)
-            }];
-        }
+    }
+
+    if ([[self proxy] _hasListeners:@"touchesEnded"]) {
+        [[self proxy] fireEvent:@"touchesEnded" withObject:@{
+            @"x": NUMDOUBLE(location.x),
+            @"y": NUMDOUBLE(location.y)
+        }];
     }
 }
 
